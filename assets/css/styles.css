@@ -1,14 +1,11 @@
 /* ============================================================
    NEUK SynBio — stylesheet
    Edit colours and fonts in the :root block below.
-   Everything else you can leave alone.
+   Each thing is defined in exactly one place.
    ============================================================ */
 
 :root {
   /* --- Colour ---------------------------------------------- */
-  /* Taken from NEUK's existing logos: the green/cyan of the helix mark
-     and the indigo of the Tyne Bridge mark. Darkened where needed so
-     text and buttons meet WCAG AA contrast. */
   --ink:        #0E2033;   /* deep navy — text, dark sections     */
   --ink-2:      #3A5262;   /* secondary text                      */
   --ink-3:      #6F8795;   /* muted text, captions                */
@@ -19,7 +16,7 @@
   --brand:       #148457;  /* NEUK green — links, buttons, nodes  */
   --brand-light: #35C78A;  /* the same green, for dark backgrounds*/
   --accent:      #0B7E96;  /* cyan — "next event", network edges  */
-  --deep:        #343A8F;  /* bridge indigo — industry, structure */
+  --deep:        #343A8F;  /* bridge indigo                       */
 
   --focus:      #35C78A;
 
@@ -56,7 +53,6 @@ body {
   font-family: var(--body);
   font-size: 1.0625rem;
   line-height: 1.65;
-  font-feature-settings: 'tnum' 0;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -102,6 +98,8 @@ img, svg { max-width: 100%; }
 
 /* ============================================================
    Header
+   ------------------------------------------------------------
+   Logo size: the 52px on .brand svg
    ============================================================ */
 
 .site-header {
@@ -113,16 +111,17 @@ img, svg { max-width: 100%; }
 
 .site-header .wrap {
   display: flex; align-items: center; gap: 2rem;
-  min-height: 72px;
+  min-height: 86px;
 }
 
 .brand {
-  display: inline-flex; align-items: center; gap: .7rem;
+  display: inline-flex; align-items: center; gap: .85rem;
   text-decoration: none; color: var(--ink);
   font-family: var(--display); font-weight: 700;
-  font-size: 1.05rem; letter-spacing: -0.02em;
+  font-size: 1.35rem; letter-spacing: -0.02em;
   margin-right: auto;
 }
+.brand svg { width: 52px; height: auto; }
 .brand span { font-weight: 400; color: var(--ink-2); }
 .brand:hover { color: var(--ink); }
 
@@ -149,7 +148,7 @@ img, svg { max-width: 100%; }
   .nav-toggle { display: block; }
   .nav {
     display: none;
-    position: absolute; inset: 72px 0 auto 0;
+    position: absolute; inset: 86px 0 auto 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--surface);
     border-bottom: 1px solid var(--line);
@@ -174,6 +173,7 @@ img, svg { max-width: 100%; }
   cursor: pointer;
   transition: background-color .15s, color .15s, border-color .15s;
 }
+button.btn { line-height: inherit; }
 .btn-primary { background: var(--brand); color: #fff; }
 .btn-primary:hover { background: #0E6440; color: #fff; }
 .btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
@@ -199,20 +199,20 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .section-head p { color: var(--ink-2); font-size: 1.1rem; }
 .band-ink .section-head p { color: #A9BFC6; }
 
-.rule {
-  height: 1px; background: var(--line);
-  border: 0; margin: 0;
-}
+.rule { height: 1px; background: var(--line); border: 0; margin: 0; }
 
 /* ============================================================
-   Hero — headline + live network map
+   Hero
+   ------------------------------------------------------------
+   Map size: the two fr values on .hero-grid, and the 118% on
+   .hero-figure which lets it overhang its column.
    ============================================================ */
 
 .hero { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem); }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(2rem, 5vw, 4.5rem);
   align-items: center;
 }
@@ -233,12 +233,36 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   margin-top: .75rem; max-width: 34ch;
 }
 
+@media (min-width: 901px) {
+  .hero-figure { width: 118%; margin-left: -9%; }
+}
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-figure { max-width: 420px; }
+  .hero-figure { max-width: 520px; }
 }
 
-/* map internals */
+/* ============================================================
+   Map
+   ------------------------------------------------------------
+   Label size: the 16px on .map-label (21px on small screens)
+   ============================================================ */
+
+.map-land { fill: rgba(120, 190, 205, .06); stroke: none; }
+
+/* the coast is a real edge, so it is solid */
+.map-coast {
+  fill: none; stroke: var(--ink-3); stroke-width: 1.2;
+  opacity: .6; stroke-linejoin: round; stroke-linecap: round;
+}
+/* the inland border is administrative, so it is dashed */
+.map-inland {
+  fill: none; stroke: var(--ink-3); stroke-width: 1;
+  opacity: .35; stroke-dasharray: 3 4; stroke-linejoin: round;
+}
+.map-leaders path {
+  fill: none; stroke: var(--ink-3); stroke-width: .8; opacity: .3;
+}
+
 .map-edge {
   stroke: var(--accent); stroke-width: 1.1; fill: none; opacity: .38;
   stroke-dasharray: 400; stroke-dashoffset: 400;
@@ -249,16 +273,21 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 @media (prefers-reduced-motion: reduce) {
   .map-edge { stroke-dashoffset: 0; animation: none; }
 }
+
 .map-node-uni { fill: var(--brand); }
-.map-node-ind { fill: var(--deep); }
 .map-halo { fill: var(--brand); opacity: .13; }
 .map-label {
-  font-family: var(--body); font-size: 13px; font-weight: 600;
+  font-family: var(--body); font-size: 16px; font-weight: 600;
   fill: var(--ink);
+}
+@media (max-width: 900px) {
+  .map-label { font-size: 21px; }
 }
 
 /* ============================================================
    Next event strip
+   ------------------------------------------------------------
+   Text sizes and the poster thumbnail are all set here.
    ============================================================ */
 
 .next-event {
@@ -272,19 +301,25 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   gap: clamp(1.25rem, 3vw, 2.5rem);
   align-items: center;
 }
+.next-poster {
+  width: 120px; height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  align-self: center;
+}
 .next-event .when {
   text-align: center; min-width: 76px;
   border-right: 1px solid var(--line); padding-right: 1.5rem;
 }
 .next-event .when .d {
-  font-family: var(--display); font-size: 2.4rem; font-weight: 700;
+  font-family: var(--display); font-size: 3rem; font-weight: 700;
   line-height: 1; display: block; letter-spacing: -0.04em;
 }
-.next-event .when .m { font-size: .9rem; color: var(--ink-2); }
-.next-event h3 { margin-bottom: .3rem; }
-.next-event .meta { color: var(--ink-2); font-size: .95rem; margin: 0; }
+.next-event .when .m { font-size: 1rem; color: var(--ink-2); }
+.next-event h3 { font-size: 1.6rem; margin-bottom: .3rem; }
+.next-event .meta { color: var(--ink-2); font-size: 1.05rem; margin: 0; }
 .next-event .tag {
-  display: inline-block; font-size: .78rem; font-weight: 600;
+  display: inline-block; font-size: .88rem; font-weight: 600;
   color: var(--accent); margin-bottom: .5rem;
 }
 
@@ -295,7 +330,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
     border-bottom: 1px solid var(--line); padding-bottom: .85rem;
     display: flex; align-items: baseline; gap: .5rem;
   }
-  .next-event .when .d { font-size: 1.9rem; }
+  .next-event .when .d { font-size: 2.2rem; }
 }
 
 /* ============================================================
@@ -326,15 +361,12 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   border-radius: var(--radius);
   overflow: hidden;
 }
-.institution {
-  background: var(--surface);
-  padding: 1.5rem 1.4rem;
-}
+.institution { background: var(--surface); padding: 1.5rem 1.4rem; }
 .institution strong { display: block; font-family: var(--display); font-size: 1.02rem; }
 .institution span { font-size: .88rem; color: var(--ink-3); }
 
 /* ============================================================
-   Speaker / event cards
+   Speaker and committee cards
    ============================================================ */
 
 .card-grid {
@@ -364,7 +396,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .speaker-card .date { font-size: .85rem; color: var(--ink-3); margin: auto 0 0; }
 
 /* ============================================================
-   Event list (used on events page + homepage)
+   Event list
    ============================================================ */
 
 .event-list { list-style: none; margin: 0; padding: 0; }
@@ -378,10 +410,56 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .event-row:first-child { border-top: 1px solid var(--line); }
 .event-row .e-date { color: var(--ink-2); font-size: .95rem; font-variant-numeric: tabular-nums; }
 .event-row h3 { font-size: 1.1rem; margin-bottom: .25rem; }
+.event-row h3 a { color: inherit; text-decoration: none; }
+.event-row h3 a:hover { color: var(--brand); text-decoration: underline; }
 .event-row .e-meta { font-size: .92rem; color: var(--ink-3); margin: 0; }
+.event-more {
+  font-size: .92rem; font-weight: 600;
+  color: var(--brand); text-decoration: none;
+  white-space: nowrap;
+}
+.event-more:hover { text-decoration: underline; }
 @media (max-width: 700px) {
   .event-row { grid-template-columns: 1fr; gap: .4rem; }
 }
+
+/* ============================================================
+   Single event page
+   ============================================================ */
+
+.lede-speaker {
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--ink); margin: 0 0 .35rem;
+}
+.detail-summary {
+  font-size: 1.1rem; color: var(--ink-2);
+  margin-top: 1.5rem; max-width: 62ch;
+}
+.event-poster {
+  display: block;
+  width: 100%; max-width: 420px; height: auto;
+  margin: 2rem 0 .5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.resource {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand);
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+}
+.resource:hover { border-left-color: var(--accent); }
+.resource strong { display: block; color: var(--ink); font-size: 1rem; }
+.resource span { font-size: .88rem; color: var(--ink-3); }
 
 /* ============================================================
    Numbers for funders
@@ -403,7 +481,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .figure p { font-size: .95rem; margin: .6rem 0 0; max-width: 24ch; }
 
 /* ============================================================
-   Split panel (industry)
+   Split panel
    ============================================================ */
 
 .split {
@@ -454,7 +532,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .tier-label:first-of-type { margin-top: 0; }
 
 /* ============================================================
-   Sign-up
+   Forms
    ============================================================ */
 
 .signup {
@@ -470,12 +548,51 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   background: var(--surface); color: var(--ink);
 }
 .signup input::placeholder { color: var(--ink-3); }
-.form-note { font-size: .85rem; color: var(--ink-3); margin-top: .9rem; }
-.band-ink .form-note { color: #8FA8B0; }
 .band-ink .signup input[type="email"] {
   background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25); color: #fff;
 }
 .band-ink .signup input::placeholder { color: #8FA8B0; }
+
+.field { margin-bottom: 1.15rem; }
+.field label {
+  display: block; font-size: .93rem; font-weight: 600;
+  margin-bottom: .4rem; color: var(--ink);
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  font: inherit; font-size: 1rem;
+  padding: .7rem .85rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface); color: var(--ink);
+}
+.field textarea { resize: vertical; min-height: 130px; }
+.field-pair {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.15rem;
+}
+
+.form-note { font-size: .85rem; color: var(--ink-3); margin-top: .9rem; }
+.band-ink .form-note { color: #8FA8B0; }
+.form-done {
+  border-left: 3px solid var(--brand);
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  margin: 0;
+}
+.form-error { color: #A32D2D; font-size: .92rem; margin-top: .9rem; }
+
+/* ============================================================
+   Luma calendar embed
+   ============================================================ */
+
+.luma-embed {
+  width: 100%;
+  min-height: 560px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
 
 /* ============================================================
    Footer
@@ -519,152 +636,3 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 }
 .mt-0 { margin-top: 0; }
 .mb-0 { margin-bottom: 0; }
-
-/* map labels need to be larger once the figure shrinks on small screens */
-@media (max-width: 900px) {
-  .map-label { font-size: 17px; }
-}
-
-/* ============================================================
-   Single event page
-   ============================================================ */
-
-.event-row h3 a { color: inherit; text-decoration: none; }
-.event-row h3 a:hover { color: var(--brand); text-decoration: underline; }
-.event-more {
-  font-size: .92rem; font-weight: 600;
-  color: var(--brand); text-decoration: none;
-  white-space: nowrap;
-}
-.event-more:hover { text-decoration: underline; }
-
-.lede-speaker {
-  font-size: 1.1rem; font-weight: 600;
-  color: var(--ink); margin: 0 0 .35rem;
-}
-.detail-summary {
-  font-size: 1.1rem; color: var(--ink-2);
-  margin-top: 1.5rem; max-width: 62ch;
-}
-
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
-}
-.resource {
-  display: block;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--brand);
-  border-radius: 0;
-  padding: 1rem 1.25rem;
-  text-decoration: none;
-}
-.resource:hover { border-left-color: var(--accent); }
-.resource strong { display: block; color: var(--ink); font-size: 1rem; }
-.resource span { font-size: .88rem; color: var(--ink-3); }
-
-/* ============================================================
-   Forms
-   ============================================================ */
-
-.field { margin-bottom: 1.15rem; }
-.field label {
-  display: block; font-size: .93rem; font-weight: 600;
-  margin-bottom: .4rem; color: var(--ink);
-}
-.field input, .field select, .field textarea {
-  width: 100%;
-  font: inherit; font-size: 1rem;
-  padding: .7rem .85rem;
-  border: 1.5px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface); color: var(--ink);
-}
-.field textarea { resize: vertical; min-height: 130px; }
-.field-pair {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.15rem;
-}
-.form-done {
-  border-left: 3px solid var(--brand);
-  padding: 1rem 1.25rem;
-  background: var(--surface);
-  margin: 0;
-}
-.form-error { color: #A32D2D; font-size: .92rem; margin-top: .9rem; }
-
-/* ============================================================
-   Luma
-   ============================================================ */
-
-/* buttons rendered as <button> need the same box as the <a> version */
-button.btn { font-family: var(--body); line-height: inherit; }
-
-.luma-embed {
-  width: 100%;
-  min-height: 560px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-/* rough outline of the North East, behind the network */
-.map-land {
-  fill: rgba(120, 190, 205, .06);
-  stroke: none;
-}
-/* the coast is a real edge, so it is solid */
-.map-coast {
-  fill: none; stroke: var(--ink-3); stroke-width: 1.2;
-  opacity: .6; stroke-linejoin: round; stroke-linecap: round;
-}
-/* the inland border is administrative, so it is dashed */
-.map-inland {
-  fill: none; stroke: var(--ink-3); stroke-width: 1;
-  opacity: .35; stroke-dasharray: 3 4; stroke-linejoin: round;
-}
-.map-leaders path {
-  fill: none; stroke: var(--ink-3); stroke-width: .8; opacity: .3;
-}
-
-/* header logo: raise or lower the 52px */
-.brand svg { width: 52px; height: auto; }
-.brand { font-size: 1.35rem; gap: .85rem; }
-.site-header .wrap { min-height: 86px; }
-
-/* map labels: raise or lower the 16px */
-.map-label { font-size: 16px; }
-@media (max-width: 900px) {
-  .map-label { font-size: 21px; }
-}
-/* event poster on the single event page */
-.event-poster {
-  display: block;
-  width: 100%;
-  max-width: 420px;
-  height: auto;
-  margin: 2rem 0 .5rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-}
-/* event poster thumbnail on the next-event strip */
-.next-poster {
-  width: 120px;
-  height: auto;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  align-self: center;
-}
-@media (max-width: 780px) {
-  .next-event { grid-template-columns: 1fr !important; }
-  .next-poster { width: 120px; }
-}
-
-/* next event strip — text sizes */
-.next-event h3 { font-size: 1.6rem; }
-.next-event .meta { font-size: 1.05rem; }
-.next-event .tag { font-size: .88rem; }
-.next-event .when .d { font-size: 3rem; }
-.next-event .when .m { font-size: 1rem; }
