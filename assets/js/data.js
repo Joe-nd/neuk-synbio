@@ -446,16 +446,6 @@ const PARTNERS = [
 
   { name: "JuniperVC",                 tier: "Sponsor", logo: "", url: "" },
 
-  { name: "InvenireX",                 tier: "Sponsor", logo: "", url: "" },
-  { name: "New England Biolabs",       tier: "Sponsor", logo: "", url: "" },
-  { name: "Merck",                     tier: "Sponsor", logo: "", url: "" },
-  { name: "Azenta Life Sciences",      tier: "Sponsor", logo: "", url: "" },
-
-  { name: "NunaBio",                   tier: "Partner", logo: "", url: "" },
-  { name: "GitLife Biotech",           tier: "Partner", logo: "", url: "" },
-  { name: "MarraBio",                  tier: "Partner", logo: "", url: "" },
-  { name: "Gains.Bio",                 tier: "Partner", logo: "", url: "" },
-  { name: "Newcastle University CSBB", tier: "Partner", logo: "", url: "https://www.ncl.ac.uk/csbb/" }
 ];
 
 
