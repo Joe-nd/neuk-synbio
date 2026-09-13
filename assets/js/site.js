@@ -321,7 +321,11 @@
         actions.push('<button class="btn btn-secondary" id="add-cal" type="button">Add to calendar</button>');
       }
       actions.push('<button class="btn btn-secondary" id="share-event" type="button">Copy link</button>');
-
+      
+       const poster = ev.image
+        ? '<img class="event-poster" src="' + esc(ev.image) + '" alt="Poster for ' +
+          esc(ev.title) + '" loading="lazy">'
+        : '';
       detail.innerHTML =
         '<p class="tag" style="color:' + (upcomingNow ? 'var(--accent)' : 'var(--ink-3)') + '">' +
         (upcomingNow ? 'Upcoming event' : 'Past event') + '</p>' +
@@ -329,6 +333,7 @@
         (ev.speaker ? '<p class="lede-speaker">' + esc(ev.speaker) +
           (ev.affiliation ? ' \u2014 ' + esc(ev.affiliation) : '') + '</p>' : '') +
         '<p class="e-meta">' + esc(meta.join('. ')) + '</p>' +
+                poster +
         (ev.summary ? '<p class="detail-summary">' + esc(ev.summary) + '</p>' : '') +
         (extras ? '<div class="resource-grid">' + extras + '</div>' : '') +
         '<div class="hero-actions">' + actions.join('') + '</div>';
