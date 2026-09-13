@@ -61,6 +61,7 @@ const EVENTS = [
      up without leaving the site. Find the ID on Luma: Manage Event > More >
      Embed. registerUrl is the plain link, used as a fallback.             */
   {
+     image: "assets/img/26.10.07.png",
     date: "2026-10-07",
     title: "NEUK Synthetic Biology Seminar I",
     speaker: "Dr Angelo Joshua A. Victoria",
