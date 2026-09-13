@@ -628,3 +628,14 @@ button.btn { font-family: var(--body); line-height: inherit; }
 .map-leaders path {
   fill: none; stroke: var(--ink-3); stroke-width: .8; opacity: .3;
 }
+
+/* header logo: raise or lower the 52px */
+.brand svg { width: 52px; height: auto; }
+.brand { font-size: 1.35rem; gap: .85rem; }
+.site-header .wrap { min-height: 86px; }
+
+/* map labels: raise or lower the 16px */
+.map-label { font-size: 16px; }
+@media (max-width: 900px) {
+  .map-label { font-size: 21px; }
+}
