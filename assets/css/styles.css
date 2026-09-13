@@ -651,7 +651,7 @@ button.btn { font-family: var(--body); line-height: inherit; }
 }
 /* event poster thumbnail on the next-event strip */
 .next-poster {
-  width: 92px;
+  width: 120px;
   height: auto;
   border-radius: var(--radius);
   border: 1px solid var(--line);
