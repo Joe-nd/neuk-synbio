@@ -649,3 +649,15 @@ button.btn { font-family: var(--body); line-height: inherit; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
+/* event poster thumbnail on the next-event strip */
+.next-poster {
+  width: 92px;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  align-self: center;
+}
+@media (max-width: 780px) {
+  .next-event { grid-template-columns: 1fr !important; }
+  .next-poster { width: 120px; }
+}
