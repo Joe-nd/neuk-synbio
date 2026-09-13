@@ -661,3 +661,10 @@ button.btn { font-family: var(--body); line-height: inherit; }
   .next-event { grid-template-columns: 1fr !important; }
   .next-poster { width: 120px; }
 }
+
+/* next event strip — text sizes */
+.next-event h3 { font-size: 1.6rem; }
+.next-event .meta { font-size: 1.05rem; }
+.next-event .tag { font-size: .88rem; }
+.next-event .when .d { font-size: 3rem; }
+.next-event .when .m { font-size: 1rem; }
