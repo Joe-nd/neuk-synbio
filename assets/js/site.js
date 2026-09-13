@@ -114,7 +114,12 @@
         '<a class="btn btn-secondary" href="event.html?id=' +
         encodeURIComponent(slugify(ev.title)) + '">Event details</a>';
 
-      nextSlot.innerHTML =
+            const thumb = ev.image
+        ? '<img class="next-poster" src="' + esc(ev.image) + '" alt="">'
+        : '';
+      if (ev.image) nextSlot.style.gridTemplateColumns = 'auto auto 1fr auto';
+
+      nextSlot.innerHTML = thumb +
         '<div class="when"><span class="d">' + d.getDate() + '</span>' +
         '<span class="m">' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() + '</span></div>' +
         '<div><p class="tag">Next event</p>' +
