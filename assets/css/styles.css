@@ -639,3 +639,13 @@ button.btn { font-family: var(--body); line-height: inherit; }
 @media (max-width: 900px) {
   .map-label { font-size: 21px; }
 }
+/* event poster on the single event page */
+.event-poster {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 2rem 0 .5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
