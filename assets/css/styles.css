@@ -256,7 +256,6 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   font-family: var(--body); font-size: 13px; font-weight: 600;
   fill: var(--ink);
 }
-.map-coast { fill: none; stroke: var(--ink-3); stroke-width: 1; opacity: .3; }
 
 /* ============================================================
    Next event strip
@@ -610,4 +609,22 @@ button.btn { font-family: var(--body); line-height: inherit; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
+}
+/* rough outline of the North East, behind the network */
+.map-land {
+  fill: rgba(120, 190, 205, .06);
+  stroke: none;
+}
+/* the coast is a real edge, so it is solid */
+.map-coast {
+  fill: none; stroke: var(--ink-3); stroke-width: 1.2;
+  opacity: .6; stroke-linejoin: round; stroke-linecap: round;
+}
+/* the inland border is administrative, so it is dashed */
+.map-inland {
+  fill: none; stroke: var(--ink-3); stroke-width: 1;
+  opacity: .35; stroke-dasharray: 3 4; stroke-linejoin: round;
+}
+.map-leaders path {
+  fill: none; stroke: var(--ink-3); stroke-width: .8; opacity: .3;
 }
