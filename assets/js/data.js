@@ -443,9 +443,9 @@ const INSTITUTIONS = [
 const PARTNERS = [
   { name: "BBSRC",                     tier: "Funder",  logo: "", url: "https://www.ukri.org/councils/bbsrc/" },
   { name: "The Biochemical Society",   tier: "Funder",  logo: "", url: "https://www.biochemistry.org/" },
-  { name: "Northstar Foundation",      tier: "Funder",  logo: "", url: "" },
-
-  { name: "JuniperVC",                 tier: "Sponsor", logo: "", url: "" },
+  
+   { name: "Northstar Ventures",      tier: "sponser",  logo: "", url: "https://www.northstarventures.co.uk/" },
+  { name: "JuniperVC",                 tier: "Sponsor", logo: "", url: "https://www.junipervc.com/" },
 
 ];
 
