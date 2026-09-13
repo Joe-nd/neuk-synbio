@@ -337,15 +337,7 @@ const SPEAKERS = [
     name: "Dr Jonathan Heddle",
     role: "Centre for Programmable Biological Matter, Durham University",
     talk: "Engineering biology at the nanoscale",
-    date: "",
-    photo: "",
-    link: ""
-  },
-  {
-    name: "Dr Ciaran Kelly",
-    role: "Assistant Professor of Applied Sciences, Northumbria University",
-    talk: "Solutions in engineering biology and biotechnology",
-    date: "2025-01-23",
+    date: "2025-11-27",
     photo: "",
     link: ""
   },
@@ -369,7 +361,7 @@ const SPEAKERS = [
     name: "Dr Alice Banks",
     role: "NunaBio",
     talk: "Sustainable DNA synthesis for the next generation of biotechnology",
-    date: "",
+    date: "2026-05-28",
     photo: "",
     link: ""
   },
@@ -393,7 +385,7 @@ const SPEAKERS = [
     name: "Dr Mauro Rinaldi",
     role: "University of Hull",
     talk: "High-value chemicals and synthetic organelles",
-    date: "",
+    date: "2025-10-06",
     photo: "",
     link: ""
   }
