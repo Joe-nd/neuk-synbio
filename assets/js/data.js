@@ -441,11 +441,11 @@ const INSTITUTIONS = [
    --------------------------------------------------------------------------- */
 
 const PARTNERS = [
-  { name: "BBSRC",                     tier: "Funder",  logo: "", url: "https://www.ukri.org/councils/bbsrc/" },
+  { name: "BBSRC",                     tier: "Funder",  logo: "assets/img/UKRI.png", url: "https://www.ukri.org/councils/bbsrc/" },
   { name: "The Biochemical Society",   tier: "Funder",  logo: "", url: "https://www.biochemistry.org/" },
-  
-   { name: "Northstar Ventures",      tier: "sponser",  logo: "", url: "https://www.northstarventures.co.uk/" },
-  { name: "JuniperVC",                 tier: "Sponsor", logo: "", url: "https://www.junipervc.com/" },
+   
+  { name: "Northstar Ventures",      tier: "sponser",  logo: "assets/img/juniper_vc_logo.jpeg", url: "https://www.northstarventures.co.uk/" },
+  { name: "JuniperVC",                 tier: "Sponsor", logo: "assets/img/North_Star.png", url: "https://www.junipervc.com/" },
 
 ];
 
