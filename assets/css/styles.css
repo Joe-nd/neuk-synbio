@@ -13,8 +13,8 @@
   --surface:    #FFFFFF;   /* cards, panels                       */
   --line:       #D4DFE1;   /* hairlines, borders                  */
 
-  --brand:       #148457;  /* NEUK green — links, buttons, nodes  */
-  --brand-light: #35C78A;  /* the same green, for dark backgrounds*/
+  --brand:       #C8102E;  /* NEUK green — links, buttons, nodes  */
+  --brand-light: #f5163a;  /* the same green, for dark backgrounds*/
   --accent:      #0B7E96;  /* cyan — "next event", network edges  */
   --deep:        #343A8F;  /* bridge indigo                       */
 
