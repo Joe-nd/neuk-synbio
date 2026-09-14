@@ -112,7 +112,7 @@ img, svg { max-width: 100%; }
 
 .site-header .wrap {
   display: flex; align-items: center; gap: 2rem;
-  min-height: 86px;
+  min-height: 110px;
 }
 
 .brand {
@@ -121,7 +121,7 @@ img, svg { max-width: 100%; }
   text-decoration: none;
   line-height: 0;
 }
-.brand-logo { height: 85px; width: auto; display: block; }
+.brand-logo { height: 100px; width: auto; display: block; }
 
 @media (max-width: 600px) {
   .brand-logo { height: 40px; }
@@ -154,7 +154,7 @@ img, svg { max-width: 100%; }
   .nav-toggle { display: block; }
   .nav {
     display: none;
-    position: absolute; inset: 86px 0 auto 0;
+    position: absolute; inset: 110px 0 auto 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--surface);
     border-bottom: 1px solid var(--line);
