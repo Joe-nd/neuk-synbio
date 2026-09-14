@@ -121,7 +121,7 @@ img, svg { max-width: 100%; }
   text-decoration: none;
   line-height: 0;
 }
-.brand-logo { height: 72px; width: auto; display: block; }
+.brand-logo { height: 85px; width: auto; display: block; }
 
 @media (max-width: 600px) {
   .brand-logo { height: 40px; }
