@@ -121,7 +121,7 @@ img, svg { max-width: 100%; }
   text-decoration: none;
   line-height: 0;
 }
-.brand-logo { height: 120px; width: auto; display: block; }
+.brand-logo { height: 86px; width: auto; display: block; }
 
 @media (max-width: 600px) {
   .brand-logo { height: 56px; max-width: 58vw; }
@@ -155,7 +155,7 @@ img, svg { max-width: 100%; }
   .nav-toggle { display: block; }
   .nav {
     display: none;
-    position: absolute; inset: 110px 0 auto 0;
+    position: absolute; inset: 86px 0 auto 0;
     flex-direction: column; align-items: stretch; gap: 0;
     background: var(--surface);
     border-bottom: 1px solid var(--line);
