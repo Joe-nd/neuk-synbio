@@ -6,19 +6,20 @@
 
 :root {
   /* --- Colour ---------------------------------------------- */
-  --ink:        #0E2033;   /* deep navy — text, dark sections     */
-  --ink-2:      #3A5262;   /* secondary text                      */
-  --ink-3:      #6F8795;   /* muted text, captions                */
-  --paper:      #EDF2F3;   /* page background                     */
+  /* Taken from the NEUK logo: navy #012169 to red #C8102E.     */
+  --ink:        #012169;   /* logo navy — text, dark sections     */
+  --ink-2:      #4A5C82;   /* secondary text                      */
+  --ink-3:      #5F6B88;   /* muted text, captions                */
+  --paper:      #F2F4F8;   /* page background                     */
   --surface:    #FFFFFF;   /* cards, panels                       */
-  --line:       #D4DFE1;   /* hairlines, borders                  */
+  --line:       #D9DEE8;   /* hairlines, borders                  */
 
-  --brand:       #C8102E;  /* NEUK green — links, buttons, nodes  */
-  --brand-light: #f5163a;  /* the same green, for dark backgrounds*/
-  --accent:      #0B7E96;  /* cyan — "next event", network edges  */
-  --deep:        #343A8F;  /* bridge indigo                       */
+  --brand:       #C8102E;  /* logo red — links, buttons, nodes    */
+  --brand-light: #FF7A8F;  /* lighter red, for navy backgrounds   */
+  --accent:      #1E4BA8;  /* mid blue — "next event", map edges  */
+  --deep:        #7A1B52;  /* the plum where the gradient crosses */
 
-  --focus:      #35C78A;
+  --focus:       #1E4BA8;
 
   /* --- Type ------------------------------------------------ */
   --display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
@@ -104,7 +105,7 @@ img, svg { max-width: 100%; }
 
 .site-header {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(237, 242, 241, .88);
+  background: rgba(242, 244, 248, .88);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -175,7 +176,7 @@ img, svg { max-width: 100%; }
 }
 button.btn { line-height: inherit; }
 .btn-primary { background: var(--brand); color: #fff; }
-.btn-primary:hover { background: #0E6440; color: #fff; }
+.btn-primary:hover { background: #A00D25; color: #fff; }
 .btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn-secondary:hover { background: var(--ink); color: var(--paper); }
 .btn-onDark { background: transparent; color: var(--paper); border-color: rgba(255,255,255,.45); }
@@ -190,14 +191,14 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 
 .band-ink { background: var(--ink); color: var(--paper); }
 .band-ink h2, .band-ink h3 { color: #fff; }
-.band-ink p { color: #C4D4D8; }
+.band-ink p { color: #C3CCE0; }
 .band-ink a { color: var(--brand-light); }
 
 .band-surface { background: var(--surface); }
 
 .section-head { max-width: 58ch; margin-bottom: clamp(2rem, 4vw, 3rem); }
 .section-head p { color: var(--ink-2); font-size: 1.1rem; }
-.band-ink .section-head p { color: #A9BFC6; }
+.band-ink .section-head p { color: #AAB6D2; }
 
 .rule { height: 1px; background: var(--line); border: 0; margin: 0; }
 
@@ -502,7 +503,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--brand);
 }
-.band-ink .checklist li { border-bottom-color: rgba(255,255,255,.14); color: #D7E4E7; }
+.band-ink .checklist li { border-bottom-color: rgba(255,255,255,.14); color: #D5DCEB; }
 .band-ink .checklist li::before { background: var(--brand-light); }
 
 /* ============================================================
@@ -551,7 +552,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 .band-ink .signup input[type="email"] {
   background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25); color: #fff;
 }
-.band-ink .signup input::placeholder { color: #8FA8B0; }
+.band-ink .signup input::placeholder { color: #93A0BD; }
 
 .field { margin-bottom: 1.15rem; }
 .field label {
@@ -573,7 +574,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 }
 
 .form-note { font-size: .85rem; color: var(--ink-3); margin-top: .9rem; }
-.band-ink .form-note { color: #8FA8B0; }
+.band-ink .form-note { color: #93A0BD; }
 .form-done {
   border-left: 3px solid var(--brand);
   padding: 1rem 1.25rem;
@@ -599,7 +600,7 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
    ============================================================ */
 
 .site-footer {
-  background: var(--ink); color: #A9BFC6;
+  background: var(--ink); color: #A9B6D0;
   padding-block: clamp(2.5rem, 5vw, 4rem) 2rem;
   font-size: .93rem;
 }
@@ -616,13 +617,13 @@ section.tight { padding-block: clamp(2.5rem, 5vw, 4rem); }
 }
 .site-footer ul { list-style: none; margin: 0; padding: 0; }
 .site-footer li { margin-bottom: .55rem; }
-.site-footer a { color: #A9BFC6; text-decoration: none; }
+.site-footer a { color: #A9B6D0; text-decoration: none; }
 .site-footer a:hover { color: #fff; text-decoration: underline; }
 .footer-bottom {
   padding-top: 1.75rem;
   display: flex; flex-wrap: wrap; gap: 1rem 2rem;
   justify-content: space-between;
-  font-size: .85rem; color: #6E8B95;
+  font-size: .85rem; color: #7382A3;
 }
 
 /* ============================================================
