@@ -137,7 +137,11 @@ img, svg { max-width: 100%; }
 .nav a:hover, .nav a[aria-current="page"] {
   color: var(--ink); border-bottom-color: var(--brand);
 }
-
+.nav a.btn-primary,
+.nav a.btn-primary:hover {
+  color: #fff;
+  border-bottom: none;
+}
 .nav-toggle {
   display: none;
   background: none; border: 1px solid var(--line);
