@@ -20,14 +20,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="2.1576023"
-     inkscape:cx="195.124"
-     inkscape:cy="179.36577"
+     inkscape:cx="158.04581"
+     inkscape:cy="114.47893"
      inkscape:window-width="1441"
      inkscape:window-height="891"
      inkscape:window-x="0"
-     inkscape:window-y="764"
+     inkscape:window-y="63"
      inkscape:window-maximized="0"
-     inkscape:current-layer="g34" />
+     inkscape:current-layer="svg19"
+     showguides="true" />
   <defs
      id="defs2">
     <style
@@ -204,7 +205,8 @@
   </defs>
   <g
      id="Layer_4"
-     data-name="Layer 4">
+     data-name="Layer 4"
+     transform="matrix(1.1061347,0,0,1.3056027,-23.3293,-43.490499)">
     <g
        id="g34"
        transform="matrix(0.51174919,0,0,0.47993705,138.58944,38.864935)">
