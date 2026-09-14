@@ -124,7 +124,8 @@ img, svg { max-width: 100%; }
 .brand-logo { height: 120px; width: auto; display: block; }
 
 @media (max-width: 600px) {
-  .brand-logo { height: 40px; }
+  .brand-logo { height: 56px; max-width: 58vw; }
+  .site-header .wrap { gap: 1rem; }
 }
 
 .nav { display: flex; align-items: center; gap: 1.6rem; }
